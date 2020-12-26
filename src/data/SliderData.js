@@ -1,10 +1,15 @@
+import imageOne from '../images/house-1.jpg';
+import imageTwo from '../images/house-2.jpg';
+import imageThree from '../images/house-3.jpg';
+import imageFour from '../images/house-4.jpg';
+
 export const SliderData = [
     {
         title: 'Luxury Villa in bali, Indonesia',
         price: '£ 4,280,000',
         path: '/homes',
         label: 'View Home',
-        image: '../images/house-1.jpg',
+        image: imageOne,
         alt: 'House'
     },
     {
@@ -12,7 +17,7 @@ export const SliderData = [
         price: '£ 2,860,000',
         path: '/homes',
         label: 'View Home',
-        image: '../images/house-2.jpg',
+        image: imageTwo,
         alt: 'House'
     },
     {
@@ -20,7 +25,7 @@ export const SliderData = [
         price: '£ 8,420,000',
         path: '/homes',
         label: 'View Home',
-        image: '../images/house-3.jpg',
+        image: imageThree,
         alt: 'House'
     },
     {
@@ -28,7 +33,7 @@ export const SliderData = [
         price: '£ 6,660,000',
         path: '/homes',
         label: 'View Home',
-        image: '../images/house-4.jpg',
+        image: imageFour,
         alt: 'House'
     },
 ];
