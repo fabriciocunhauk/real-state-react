@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { Button } from '../button.component/Button';
 
@@ -19,18 +19,46 @@ import {
 const Hero = ({ slides }) => {
     const [current, setCurrent] = useState(0);
     const length = slides.length;
-    // const timeoute = useRef(null);
+    const timeout = useRef(null);
 
+    // Timeout next slide effect
+    useEffect(() => {
+        const nextSlide = () => {
+            setCurrent(current === length - 1 ? 0 : current + 1);
+        };
+
+        timeout.current = setTimeout(nextSlide, 3000);
+
+        return () => {
+            if (timeout.current) {
+                clearTimeout(timeout.current)
+            }
+        }
+    }, [current, length]);
+
+    // Slide Logic
     const nextSlide = () => {
+        if (timeout.current) {
+            clearTimeout(timeout.current)
+        }
+
         setCurrent(current === length - 1 ? 0 : current + 1);
         console.log(current);
     };
 
     const prevSlide = () => {
+        if (timeout.current) {
+            clearTimeout(timeout.current)
+        }
+
         setCurrent(current === 0 ? length - 1 : current - 1);
         console.log(current);
 
     };
+
+    if (!Array.isArray(slides) || slides.length <= 0) {
+        return null;
+    }
 
     return (
         <HeroSection>
