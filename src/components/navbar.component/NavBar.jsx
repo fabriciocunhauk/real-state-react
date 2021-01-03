@@ -5,10 +5,11 @@ import { menuData } from '../../data/MenuData';
 import { Nav, Logo, MenuBars, NavMenu, NavBtn, NavMenuLinks } from './navbar-styled';
 import { Button } from '../button.component/Button';
 
-const NavBar = () => {
+const NavBar = ({ toggle }) => {
     return (
         <Nav>
             <Logo to='/' >ELIXR</Logo>
+            <MenuBars onClick={toggle} />
             <NavMenu>
                 {menuData.map((item, index) => (
                     <NavMenuLinks to={item.link} key={index} >
@@ -21,7 +22,6 @@ const NavBar = () => {
                     Contact Us
                 </Button>
             </NavBtn>
-            <MenuBars />
         </Nav>
     )
 }

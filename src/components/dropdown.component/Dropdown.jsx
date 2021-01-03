@@ -13,10 +13,10 @@ import {
     BtnWrap
 } from './dropdown.styles';
 
-const Dropdown = () => {
+const Dropdown = ({ isOpen, toggle }) => {
     return (
-        <DropdownContainer>
-            <Icon>
+        <DropdownContainer isOpen={isOpen} onClick={toggle}>
+            <Icon onClick={toggle}>
                 <CloseIcon />
             </Icon>
             <DropdownWraper>
